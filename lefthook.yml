@@ -1,0 +1,13 @@
+# Git hooks run on every commit. Install once per clone: `lefthook install`.
+# These are a convenience; CI runs the same checks and is the real gate.
+pre-commit:
+  parallel: true
+  commands:
+    secrets:
+      run: gitleaks git --pre-commit --staged --no-banner --redact
+    format:
+      glob: '*.{astro,ts,mjs,js,json,css,yml,yaml}'
+      run: pnpm exec prettier --check {staged_files}
+    image-metadata:
+      glob: '*.{jpg,jpeg,png,webp,avif,gif,tif,tiff,heic,heif,svg}'
+      run: node scripts/check-image-metadata.mjs {staged_files}
