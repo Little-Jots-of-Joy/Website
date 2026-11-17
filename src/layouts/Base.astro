@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+import { site } from '../config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Set false on pages that should not claim a canonical URL, such as 404. */
+  canonical?: boolean;
+}
+
+const { title, description = site.description, canonical: withCanonical = true } = Astro.props;
+const pageTitle = title ? `${title} | ${site.name}` : site.name;
+// Clean URLs: "/index.html" becomes "/", "/privacy.html" becomes "/privacy".
+const canonical = new URL(Astro.url.pathname.replace(/(index)?\.html$/, ''), site.url);
+---
+
+<!doctype html>
+<html lang={site.locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    {withCanonical && <link rel="canonical" href={canonical} />}
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

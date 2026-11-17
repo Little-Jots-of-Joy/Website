@@ -16,5 +16,8 @@ Alternative considered: Hugo. It is a single binary with no npm dependencies, so
 ## Consequences
 
 - Zero client-side JavaScript by default; interactive pieces can be added per component when needed.
-- We take on npm dependencies. Mitigations: a strict dependency budget, pnpm's install-script controls, Dependabot, and dependency scanning in CI.
+- We take on npm dependencies. Mitigations: a strict dependency budget, Dependabot, dependency scanning in CI, and pnpm settings in `pnpm-workspace.yaml`:
+  - dependency build scripts blocked unless listed in `allowBuilds` (pnpm default, kept strict)
+  - `minimumReleaseAge` of 7 days, so freshly published (and possibly malicious) versions are not installed. Trade-off: urgent fixes wait too, unless the package is added to `minimumReleaseAgeExclude` in the same pull request with a reason
+  - `trustPolicy: no-downgrade`, which fails the install if a package's publishing trust level drops
 - Revisit Hugo if dependency maintenance becomes a burden.

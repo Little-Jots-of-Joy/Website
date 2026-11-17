@@ -1,0 +1,16 @@
+# pnpm settings. Supply-chain controls are deliberate: see ADR 0001.
+
+# Dependency build scripts stay blocked unless a package is listed here
+# with a reason. Adding one needs approval.
+allowBuilds: {}
+
+# Fail the install if any dependency has an unreviewed build script.
+strictDepBuilds: true
+
+# Wait 7 days (in minutes) before installing a newly published version.
+# For an urgent security fix, add the package to minimumReleaseAgeExclude
+# in the same pull request and note why.
+minimumReleaseAge: 10080
+
+# Fail if a package's publishing trust level drops between releases.
+trustPolicy: no-downgrade
