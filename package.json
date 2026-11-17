@@ -11,9 +11,23 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write .",
+    "check": "pnpm check:types && pnpm check:format && pnpm build && pnpm check:html && pnpm check:inline && pnpm check:images",
+    "check:types": "astro check",
+    "check:format": "prettier --check .",
+    "check:html": "html-validate \"dist/**/*.html\"",
+    "check:inline": "node scripts/check-inline.mjs",
+    "check:images": "node scripts/check-image-metadata.mjs"
   },
   "dependencies": {
     "astro": "^7.4.8"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "html-validate": "^11.21.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.2",
+    "typescript": "^6.0.3"
   }
 }

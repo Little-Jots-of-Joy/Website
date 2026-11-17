@@ -1,0 +1,7 @@
+dist/
+.astro/
+node_modules/
+pnpm-lock.yaml
+
+# Documents: kept out so edits on github.com never fail on table spacing.
+*.md
