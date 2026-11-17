@@ -1,0 +1,26 @@
+# Website
+
+Source for the Little Jots of Joy website: a static brand site built with [Astro](https://astro.build) and hosted on Cloudflare.
+
+## Status
+
+Phase 0 (foundations). The site scaffold, local checks and CI arrive in the next pull requests.
+
+## Key documents
+
+| Document | Purpose |
+|---|---|
+| [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md) | Goals, decisions, phases and requirements |
+| [`CLAUDE.md`](CLAUDE.md) | Working rules for contributors, human and AI |
+| [`docs/adr/`](docs/adr/) | Architecture decision records |
+| [`docs/privacy/data-inventory.md`](docs/privacy/data-inventory.md) | Every flow of personal information |
+| [`SECURITY.md`](SECURITY.md) | How to report a vulnerability |
+
+## Licensing
+
+- **Code:** MIT. See [`LICENSE`](LICENSE).
+- **Artwork, brand assets, photos and copy:** all rights reserved. See [`CONTENT-LICENSE.md`](CONTENT-LICENSE.md).
+
+## Contributing
+
+Feature branch, pull request into `main`, checks must pass, Conventional Commits. See `CLAUDE.md` for the hard rules, especially on privacy, third-party requests and the Content-Security-Policy.
