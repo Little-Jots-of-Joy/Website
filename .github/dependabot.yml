@@ -1,0 +1,36 @@
+# Weekly grouped version updates. Security updates are separate and immediate
+# (enabled in repository settings). See docs/runbooks/dependency-updates.md.
+version: 2
+updates:
+  - package-ecosystem: npm # covers pnpm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '10:00' # UTC
+    # Matches pnpm's minimumReleaseAge (7 days), so routine updates pass CI.
+    cooldown:
+      default-days: 7
+    groups:
+      npm-minor-and-patch:
+        patterns: ['*']
+        update-types: [minor, patch]
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: build
+      include: scope
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '10:00' # UTC
+    cooldown:
+      default-days: 7
+    groups:
+      github-actions:
+        patterns: ['*']
+    commit-message:
+      prefix: ci
+      include: scope
