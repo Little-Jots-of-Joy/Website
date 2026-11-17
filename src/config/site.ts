@@ -24,7 +24,7 @@ export const site = {
     security: `security@${domain}`,
   },
   social: {
-    instagram: '', // TBD: handle from Kelly
+    instagram: 'littlejotsofjoy',
   },
   /** security.txt must expire within a year. Renew before this date (calendar reminder). */
   securityTxtExpires: '2027-11-16T00:00:00.000Z',
