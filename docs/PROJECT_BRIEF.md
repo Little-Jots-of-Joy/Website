@@ -58,7 +58,7 @@ The site starts as a single static brand page and grows in small, safe increment
 
 ### Repository
 
-- GitHub **organization** `Little-Jots-of-Joy` (free plan). Owners: Brion and Kelly (two owners for continuity). Require 2FA for all members. Organization billing/contact email: account@littlejotsofjoy.ca.
+- GitHub **organization** `Little-Jots-of-Joy` (free plan). Owners: Brion and Kelly (two owners for continuity). Require 2FA for all members. Organization billing/contact email: ap@littlejotsofjoy.ca.
 - Repository `Website`. **Recommended public:** public repositories get GitHub code scanning, secret scanning, push protection and dependency review free. A static brand site holds no secrets. Art is visible on the live site regardless.
 - Licensing: code under MIT (`LICENSE`); **all artwork, brand assets and copy are © Little Jots of Joy, all rights reserved** (`CONTENT-LICENSE.md`, referenced from the README).
 - Never commit print-ready files, original scans or full-resolution art. Web-resolution exports only.
