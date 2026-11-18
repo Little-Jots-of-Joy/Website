@@ -5,7 +5,7 @@ One short file per significant decision: context, decision, consequences. Number
 | ADR | Title | Status |
 |---|---|---|
 | [0001](0001-framework-astro.md) | Framework: Astro, static output | Accepted |
-| [0002](0002-hosting-cloudflare.md) | Hosting: Cloudflare | Accepted (product to confirm) |
+| [0002](0002-hosting-cloudflare.md) | Hosting: Cloudflare Workers (static assets) | Accepted |
 | [0003](0003-public-repository.md) | Public repository | Accepted |
 | [0004](0004-content-security-policy.md) | Content-Security-Policy | Accepted |
 | [0005](0005-main-branch-ruleset.md) | `main` branch ruleset without required approvals | Accepted |
