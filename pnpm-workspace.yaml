@@ -1,8 +1,13 @@
 # pnpm settings. Supply-chain controls are deliberate: see ADR 0001.
 
 # Dependency build scripts stay blocked unless a package is listed here
-# with a reason. Adding one needs approval.
-allowBuilds: {}
+# with a reason. Adding one needs approval. `false` records a reviewed denial.
+allowBuilds:
+  # Both come with wrangler. Their install scripts only verify or fetch
+  # binaries for local dev and bundling; an assets-only deploy needs neither,
+  # and the binaries arrive as platform packages anyway. Denied 2026-11-17.
+  esbuild: false
+  workerd: false
 
 # Fail the install if any dependency has an unreviewed build script.
 strictDepBuilds: true
