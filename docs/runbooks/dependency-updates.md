@@ -44,3 +44,4 @@ If you're not comfortable approving the fresh version, waiting out the 7 days is
 - No Dependabot PRs older than a week
 - Scorecard result has not dropped
 - `security.txt` expiry is more than a month away (also in the calendar)
+- Cloudflare dashboard settings still match the configuration reference in `deploy.md`, and the live site sets no cookies
