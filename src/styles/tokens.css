@@ -1,25 +1,53 @@
 /*
  * Design tokens: the one place colours, type and spacing are set.
- * Placeholder values until Kelly's logo and palette arrive.
- * Keep text/background pairs at WCAG 2.2 AA contrast (4.5:1 body, 3:1 large text).
+ * Brand v2, approved by Kelly on 2026-11-18. Rules and usage: docs/brand/BRAND.md.
+ * Use the role tokens (--color-*, --font-*, --space-*) in components, never raw hex values.
+ * Contrast ratios are against --ljj-paper unless noted (WCAG 2.2 AA: 4.5:1 body, 3:1 large text and graphics).
  */
 
 :root {
-  /* Colour */
-  --color-bg: #fffdf8;
-  --color-surface: #f6f1e7;
-  --color-text: #2b2620;
-  --color-text-muted: #5c544a;
-  --color-accent: #8a3b12;
-  --color-focus: #1f5fbf;
+  /* Brand palette */
+  --ljj-forest: #104032; /* from the logo: wordmarks, headings, body text, divider lines. 11.3:1 */
+  --ljj-rose: #de6775; /* from the logo heart: graphics only, never text */
+  --ljj-rose-deep: #b94452; /* rose text and links. 5.1:1 (4.6:1 on sage) */
+  --ljj-teal: #3bb8ae; /* Art Cards by Hadley background. Forest text on it: 4.8:1. Never divider lines */
+  --ljj-teal-deep: #0e7a73; /* Hadley wordmark, teal text, focus ring. 5.0:1 (4.5:1 on sage) */
+  --ljj-sunshine: #ffc23d; /* buttons and highlights. Forest text on it: 7.2:1. Never as text */
+  --ljj-paper: #fffbf3; /* page background (screen only; print uses white) */
+  --ljj-ink-soft: #2c4b42; /* secondary text. 9.3:1 */
+  --ljj-sage: #eef1ea; /* alternate section background. Forest on it: 10.2:1 */
+  --ljj-line: #e8e0cf; /* decorative hairlines and card borders */
 
-  /* Type: system fonts until brand fonts are chosen and self-hosted */
-  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-display: Georgia, 'Times New Roman', serif;
-  --font-size-base: 1.125rem;
+  /* Colour roles */
+  --color-bg: var(--ljj-paper);
+  --color-surface: var(--ljj-sage);
+  --color-text: var(--ljj-forest);
+  --color-text-muted: var(--ljj-ink-soft);
+  --color-accent: var(--ljj-rose-deep); /* links */
+  --color-accent-hover: var(--ljj-forest);
+  --color-focus: var(--ljj-teal-deep);
+  --color-button-bg: var(--ljj-sunshine);
+  --color-button-text: var(--ljj-forest);
+  --color-hadley: var(--ljj-teal);
+  --color-hadley-text: var(--ljj-teal-deep);
+  --color-footer-bg: var(--ljj-forest);
+  --color-footer-text: var(--ljj-paper);
+  --color-line: var(--ljj-line);
+
+  /* Type: self-hosted, see fonts.css. Yellowtail and Grenze live only inside the logo artwork */
+  --font-body: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-weight-body: 400;
+  --font-weight-strong: 700;
+  --font-weight-heading: 600;
+  --font-weight-hero: 500;
+  --font-size-sm: 0.9375rem;
+  --font-size-base: 1.0625rem;
   --font-size-lg: 1.5rem;
-  --font-size-xl: clamp(2rem, 6vw, 3.5rem);
+  --font-size-2xl: clamp(1.75rem, 1.4rem + 1.5vw, 2.25rem);
+  --font-size-xl: clamp(2.25rem, 1.6rem + 3vw, 3.5rem);
   --line-height: 1.6;
+  --line-height-tight: 1.1;
 
   /* Space */
   --space-xs: 0.25rem;
@@ -28,6 +56,12 @@
   --space-lg: 2rem;
   --space-xl: 4rem;
 
+  /* Shape and layout */
   --content-width: 40rem;
+  --container-width: 73.75rem;
   --radius: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-pill: 999px;
+  --shadow-card: 0 6px 18px rgb(16 64 50 / 12%);
+  --tap-target: 44px;
 }
