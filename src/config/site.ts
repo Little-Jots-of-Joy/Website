@@ -7,8 +7,8 @@ const domain = 'littlejotsofjoy.ca';
 
 export const site = {
   name: 'Little Jots of Joy',
-  /** Placeholder until Kelly approves a tagline. */
-  tagline: 'Coming soon',
+  /** Approved 2026-11-18. Also baked into public/og-image.png: regenerate that if this changes. */
+  tagline: 'Kid-drawn cards for life’s little moments.',
   /** Placeholder until Kelly approves copy. No location: see child privacy rules. */
   description: 'Cards and paper goods made from children’s artwork.',
   domain,

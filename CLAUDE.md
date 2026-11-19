@@ -29,7 +29,7 @@ Read `docs/PROJECT_BRIEF.md` before starting any task. It holds the goals, decis
 
 ## Brand
 
-- All UI follows `docs/brand/BRAND.md` (approved by Kelly). Use the tokens in `src/styles/tokens.css`, never raw hex values.
+- All UI follows `docs/brand/BRAND.md` (approved by Kelly). Use the tokens in `src/styles/tokens.css`, never raw hex values. Exception: `theme-color` and the web manifest need a literal hex (they can't read CSS variables); keep it equal to `--ljj-forest`.
 - Use the logo files in `src/assets/brand/` as they are. Never redraw, recolour or re-typeset them, and never imitate Hadley's handwriting with another font.
 
 ## Copy and tone

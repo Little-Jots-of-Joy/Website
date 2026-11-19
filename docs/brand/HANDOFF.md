@@ -16,18 +16,18 @@ From the brand session, 2026-11-18. Read `docs/brand/BRAND.md` first.
 Visual reference: the design canvas (link in BRAND.md). All copy below is a **draft for Kelly to approve**. Keep the brand name, tagline, handle and addresses in `src/config/site.ts`.
 
 1. **Header**: `heart.png` + `little-jots-of-joy-wordmark.png` side by side, linking to `/`. Nav: Cards · Find us · Contact. Wraps on small screens.
-2. **Hero**: H1 (Fraunces 600, `--font-size-xl`): proposed tagline "Kid-drawn cards for life's little moments." (set `site.tagline` once approved). Lead: "Real drawings by our kids, printed on premium card with an envelope. Made to be sent, kept and pinned to the fridge." Buttons: "Find us at a market" (Sunshine background, Forest text) → `#find-us`; "See the cards" (Forest outline) → `#cards`. Two card images.
+2. **Hero**: H1 (Fraunces 600, `--font-size-xl`): tagline from `site.tagline` (approved 2026-11-18: "Kid-drawn cards for life's little moments."). Lead: "Real drawings by our kids, printed on premium card with an envelope. Made to be sent, kept and pinned to the fridge." Buttons: "Find us at a market" (Sunshine background, Forest text) → `#find-us`; "See the cards" (Forest outline) → `#cards`. Two card images.
 3. **Story** (`--color-surface` background), centred, heart above. H2 "It started at our kitchen table." Body: "We sit together and doodle little things. Some of those doodles were too good to keep to ourselves, so we turned them into cards. Every design starts as a real drawing, and every card is a small way to share a happy moment with someone else."
 4. **Cards** (`#cards`): `art-cards-by-hadley-lockup.png` as the section header, a one-line intro, then a grid of 4–6 card images (`repeat(auto-fit, minmax(170px, 1fr))`). No card titles. Alt text describes the artwork only, for example "Card with a crayon drawing of a yellow sun over a red house". Nothing identifying.
-5. **Find us** (`#find-us`, `--color-hadley` background, Paper cards on it): Saturday, November 21, 2026 · [MARKET NAME] · [VENUE] · [HOURS]. Second market: [DATE]. Forest text on Teal; Teal Deep for the date label inside the Paper cards.
+5. **Find us** (`#find-us`, `--color-hadley` background, Paper cards on it): Sunday, November 22, 2026 · [MARKET NAME] · [VENUE] · [HOURS]. Second market: Wednesday, December 2, 2026 · [VENUE] · [HOURS]. Publishing market details is approved by Brion (2026-11-18, action 51). Venue wording waits on a CLAUDE.md rule 4 update; never say which family member will be at the table. Forest text on Teal; Teal Deep for the date label inside the Paper cards.
 6. **Join the list**: Sunshine panel. "Our mailing list is coming soon. For now, follow along on Instagram for new cards and market dates." Link styled as a button: "Follow @littlejotsofjoy" → Instagram. No form and no data collection in v1.
-7. **Footer** (`#contact`, `--color-footer-bg`): reversed logo or reversed wordmark + heart, "A family stationery business in Ontario.", hello@ and wholesale@ addresses, link to `/privacy`, "© 2026 Little Jots of Joy. Art and designs all rights reserved." (brand name from `site.ts`).
+7. **Footer** (`#contact`, `--color-footer-bg`): reversed logo or reversed wordmark + heart, "A family stationery business." (adding "in Ontario" on the website is **pending a decision**; it's approved for card backs only), hello@ and wholesale@ addresses, link to `/privacy`, "© 2026 Little Jots of Joy. Art and designs all rights reserved." (brand name from `site.ts`).
 
 ## Inputs still to come
 
 - 4–6 card images: RGB PNG/JPG exports from Canva, at least 1600 px on the long side.
-- Kelly's approval of the story copy and the tagline.
-- Market 1 name, venue and hours; market 2 date.
+- Kelly's approval of the story copy.
+- Market 1 name, venue and hours; market 2 venue wording (after the rule 4 update).
 
 ## Known limitations
 

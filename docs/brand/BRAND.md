@@ -69,9 +69,9 @@ Warm, simple, playful, honest. Short sentences. No hype, no exclamation-mark pil
 
 Approved lines:
 - Instagram: **@littlejotsofjoy**
-- Card-back small print: "Original artwork · littlejotsofjoy.ca · @littlejotsofjoy · Made with joy in Ontario"
+- Card-back small print (approved 2026-11-18, buy-local appeal): "Original artwork · littlejotsofjoy.ca · @littlejotsofjoy · Made with joy in Ontario"
 - Cards have no titles.
-- Tagline (proposed, **not yet approved**): "Kid-drawn cards for life's little moments."
+- Tagline (approved 2026-11-18): "Kid-drawn cards for life's little moments." Lives in `site.tagline`; also baked into `public/og-image.png`.
 
 ## 6. Child privacy (non-negotiable, from the project brief §7)
 
@@ -79,7 +79,7 @@ Approved lines:
 - Hadley's first name appears **only** inside the sub-brand name "Art Cards by Hadley".
 - Strip all metadata from images. The brand assets in this package were saved without metadata.
 - Process photos show hands and artwork only.
-- Location is stated no more precisely than "Ontario".
+- Location: "Ontario" is approved on card backs only. On the website, no location until Brion decides (any use of "Ontario" there needs that decision first).
 
 ## 7. Card print specs (for reference)
 
