@@ -61,7 +61,7 @@ const heroCards = cards.slice(0, 2);
   </section>
 
   {cards.length > 0 && (
-    <section class="cards" id="cards" aria-labelledby="cards-title">
+    <section class="cards" id="cards" aria-label="Art Cards by Hadley">
       <div class="container">
         <h2 id="cards-title" class="cards-title">
           <Image
@@ -151,6 +151,7 @@ const heroCards = cards.slice(0, 2);
 
   .hero-text {
     flex: 1 1 22rem;
+    min-width: 0;
   }
 
   .lead {
@@ -167,9 +168,16 @@ const heroCards = cards.slice(0, 2);
 
   .hero-cards {
     flex: 1 1 18rem;
+    min-width: 0;
     display: flex;
     gap: var(--space-md);
     justify-content: center;
+  }
+
+  /* Let the two hero cards share the row instead of forcing it wider than a phone. */
+  .hero-cards .card-image {
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   .card-image {
@@ -206,6 +214,8 @@ const heroCards = cards.slice(0, 2);
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    align-items: center;
+    justify-items: center;
     gap: var(--space-md);
     margin: var(--space-lg) 0 0;
     padding: 0;
