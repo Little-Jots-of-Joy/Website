@@ -4,7 +4,7 @@ Every flow of personal information connected to the website. Update this file in
 
 This is the website slice of the organization-wide **LJoJ Data Inventory** and **LJoJ Data Retention Policy and Schedule** (Google Drive, approved retention periods 2026-11-18). If they disagree, fix both.
 
-- Accountable person: Kelly (CEO)
+- Accountable person: the designated privacy officer (named in the LJoJ Privacy Policy in Drive; identity given on request, PIPEDA Schedule 1, 4.1.2)
 - Privacy contact: privacy@littlejotsofjoy.ca
 - Last reviewed: 2026-11-18
 
