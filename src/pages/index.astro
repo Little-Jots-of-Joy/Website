@@ -225,8 +225,9 @@ const heroCards = cards.slice(0, 2);
     list-style: none;
   }
 
+  /* Calm backgrounds (Paper/Sage alternate); brand colours are accents only. */
   .find-us {
-    background: var(--color-hadley);
+    background: var(--color-surface);
   }
 
   .event-list {
@@ -240,6 +241,7 @@ const heroCards = cards.slice(0, 2);
 
   .event {
     background: var(--color-bg);
+    border-top: 4px solid var(--color-hadley);
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
     box-shadow: var(--shadow-card);
@@ -258,10 +260,6 @@ const heroCards = cards.slice(0, 2);
     font-weight: var(--font-weight-strong);
   }
 
-  .join {
-    background: var(--color-button-bg);
-  }
-
   .button-dark {
     background: var(--color-text);
     border-color: var(--color-text);
@@ -269,7 +267,8 @@ const heroCards = cards.slice(0, 2);
   }
 
   .button-dark:hover {
+    background: var(--color-text-muted);
+    border-color: var(--color-text-muted);
     color: var(--color-bg);
-    border-color: var(--color-bg);
   }
 </style>
