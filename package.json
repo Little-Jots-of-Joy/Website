@@ -15,12 +15,13 @@
     "deploy": "wrangler deploy",
     "deploy:dry-run": "wrangler deploy --dry-run",
     "format": "prettier --write .",
-    "check": "pnpm check:types && pnpm check:format && pnpm build && pnpm check:html && pnpm check:inline && pnpm check:images",
+    "check": "pnpm check:types && pnpm check:format && pnpm build && pnpm check:html && pnpm check:inline && pnpm check:images && pnpm check:links",
     "check:types": "astro check",
     "check:format": "prettier --check .",
     "check:html": "html-validate \"dist/**/*.html\"",
     "check:inline": "node scripts/check-inline.mjs",
-    "check:images": "node scripts/check-image-metadata.mjs"
+    "check:images": "node scripts/check-image-metadata.mjs",
+    "check:links": "lychee --offline --no-progress --include-fragments --fallback-extensions html --index-files index.html,. --root-dir \"$PWD/dist\" \"dist/**/*.html\" \"*.md\" \"docs/**/*.md\""
   },
   "dependencies": {
     "astro": "^7.4.8"

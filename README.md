@@ -32,7 +32,7 @@ pnpm dev           # preview at http://localhost:4321
 
 ## Checks
 
-`pnpm check` runs the full local suite: type check, formatting, build, HTML validation, inline-code check (CSP) and image metadata check. Run it before opening a pull request. `pnpm format` fixes formatting. Markdown files are not auto-formatted, so they can be edited on github.com.
+`pnpm check` runs the full local suite: type check, formatting, build, HTML validation, inline-code check (CSP), image metadata check and internal link check (lychee). Run it before opening a pull request. `pnpm format` fixes formatting. Markdown files are not auto-formatted, so they can be edited on github.com.
 
 To strip metadata from an image before adding it: `exiftool -all= -overwrite_original <file>`.
 
