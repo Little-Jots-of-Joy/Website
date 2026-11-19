@@ -9,8 +9,8 @@ export const site = {
   name: 'Little Jots of Joy',
   /** Approved 2026-11-18. Also baked into public/og-image.png: regenerate that if this changes. */
   tagline: 'Kid-drawn cards for life’s little moments.',
-  /** Placeholder until Kelly approves copy. No location: see child privacy rules. */
-  description: 'Cards and paper goods made from children’s artwork.',
+  /** Approved 2026-11-18. Search results and link previews. */
+  description: 'Kid-drawn greeting cards from a family stationery business in Ontario.',
   domain,
   url: `https://${domain}`,
   locale: 'en-CA',
@@ -25,6 +25,7 @@ export const site = {
   },
   social: {
     instagram: 'littlejotsofjoy',
+    instagramUrl: 'https://www.instagram.com/littlejotsofjoy/',
   },
   /** security.txt must expire within a year. Renew before this date (calendar reminder). */
   securityTxtExpires: '2027-11-16T00:00:00.000Z',

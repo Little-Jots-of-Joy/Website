@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '../config/site';
+import heart from '../assets/brand/heart-reversed.png';
+import wordmark from '../assets/brand/little-jots-of-joy-wordmark-reversed.png';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer" id="contact">
+  <div class="container inner">
+    <div class="brand">
+      <Image src={heart} alt="" widths={[36, 72]} sizes="36px" class="heart" />
+      <Image src={wordmark} alt={site.name} widths={[140, 280]} sizes="140px" class="wordmark" />
+    </div>
+    <p>A family stationery business in Ontario.</p>
+    <ul class="contacts">
+      <li>
+        Say hello: <a href={`mailto:${site.email.hello}`}>{site.email.hello}</a>
+      </li>
+      <li>
+        Wholesale: <a href={`mailto:${site.email.wholesale}`}>{site.email.wholesale}</a>
+      </li>
+      <li>
+        <a href="/privacy">Privacy</a>
+      </li>
+    </ul>
+    <p class="small">
+      © {year} {site.name}. Art and designs all rights reserved.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    padding-block: var(--space-xl);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .heart {
+    width: 36px;
+    height: auto;
+  }
+
+  .wordmark {
+    width: 140px;
+    height: auto;
+  }
+
+  a {
+    color: var(--color-footer-text);
+  }
+
+  a:hover {
+    color: var(--color-footer-text);
+    text-decoration-thickness: 2px;
+  }
+
+  .contacts {
+    margin: 0 0 var(--space-md);
+    padding: 0;
+    list-style: none;
+  }
+
+  .contacts li {
+    min-height: var(--tap-target);
+    display: flex;
+    align-items: center;
+    /* Flex drops the space between label and link, so restore it. */
+    gap: 0.3em;
+  }
+
+  .small {
+    font-size: var(--font-size-sm);
+    margin: 0;
+  }
+
+  .site-footer :focus-visible {
+    outline-color: var(--color-footer-text);
+  }
+</style>

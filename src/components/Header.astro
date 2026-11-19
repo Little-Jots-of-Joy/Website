@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '../config/site';
+import { cards } from '../data/cards';
+import heart from '../assets/brand/heart.png';
+import wordmark from '../assets/brand/little-jots-of-joy-wordmark.png';
+---
+
+<header class="site-header">
+  <div class="container inner">
+    <a class="brand" href="/">
+      <Image src={heart} alt="" widths={[40, 80]} sizes="40px" class="heart" />
+      <Image src={wordmark} alt={site.name} widths={[150, 300]} sizes="150px" class="wordmark" />
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        {cards.length > 0 && (
+          <li>
+            <a href="/#cards">Cards</a>
+          </li>
+        )}
+        <li>
+          <a href="/#find-us">Find us</a>
+        </li>
+        <li>
+          <a href="/#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm) var(--space-lg);
+    padding-block: var(--space-md);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .heart {
+    width: 40px;
+    height: auto;
+  }
+
+  .wordmark {
+    width: 150px;
+    height: auto;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap-target);
+    color: var(--color-text);
+    font-weight: var(--font-weight-strong);
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+</style>

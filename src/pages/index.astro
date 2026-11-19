@@ -1,12 +1,274 @@
 ---
+// Home page v1. Copy approved 2026-11-18 (Brion, with Kelly). Structure from docs/brand/HANDOFF.md.
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { site } from '../config/site';
+import { cards } from '../data/cards';
+import { upcomingEvents } from '../data/events';
+import heart from '../assets/brand/heart.png';
+import lockup from '../assets/brand/art-cards-by-hadley-lockup.png';
+
+const events = upcomingEvents();
+const heroCards = cards.slice(0, 2);
 ---
 
-<Base>
-  <h1>{site.name}</h1>
-  <p>{site.tagline}</p>
-  <p class="muted">
-    Say hello: <a href={`mailto:${site.email.hello}`}>{site.email.hello}</a>
-  </p>
+<Base wide>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>{site.tagline}</h1>
+        <p class="lead">
+          Real drawings by our kids, printed on thick card with an envelope. Made to be sent, kept
+          and pinned to the fridge.
+        </p>
+        <p class="actions">
+          <a class="button" href="#find-us">
+            Find us at a market
+          </a>
+          {cards.length > 0 && (
+            <a class="button button-outline" href="#cards">
+              See the cards
+            </a>
+          )}
+        </p>
+      </div>
+      {heroCards.length > 0 && (
+        <div class="hero-cards">
+          {heroCards.map((card) => (
+            <Image
+              src={card.image}
+              alt={card.alt}
+              widths={[280, 560]}
+              sizes="(min-width: 50rem) 280px, 45vw"
+              class="card-image"
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="story" aria-labelledby="story-title">
+    <div class="container narrow">
+      <Image src={heart} alt="" widths={[56, 112]} sizes="56px" class="story-heart" />
+      <h2 id="story-title">It started at our kitchen table.</h2>
+      <p>
+        We sit together and doodle. Some doodles were too good to keep to ourselves, so we turned
+        them into cards. Every design starts as a real drawing. Every card is a small way to share a
+        happy moment.
+      </p>
+    </div>
+  </section>
+
+  {cards.length > 0 && (
+    <section class="cards" id="cards" aria-label="Art Cards by Hadley">
+      <div class="container">
+        <h2 id="cards-title" class="cards-title">
+          <Image
+            src={lockup}
+            alt={`Art Cards by Hadley, from ${site.name}`}
+            widths={[320, 640]}
+            sizes="320px"
+            class="lockup"
+          />
+        </h2>
+        <p class="cards-intro">
+          Each card is printed from the original drawing, just as it was made. Even the lettering is
+          kid-made: it’s a font created from our young artist’s own handwriting.
+        </p>
+        <ul class="card-grid">
+          {cards.map((card) => (
+            <li>
+              <Image
+                src={card.image}
+                alt={card.alt}
+                widths={[240, 480]}
+                sizes="(min-width: 50rem) 240px, 45vw"
+                class="card-image"
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <section class="find-us" id="find-us" aria-labelledby="find-us-title">
+    <div class="container">
+      <h2 id="find-us-title">Find us</h2>
+      <p>Come see the cards in person.</p>
+      {events.length > 0 ? (
+        <ul class="event-list">
+          {events.map((event) => (
+            <li class="event">
+              <h3>{event.name}</h3>
+              <p class="event-when">
+                <time datetime={event.date}>{event.dateLabel}</time> · {event.hours}
+              </p>
+              <p>{event.venue}</p>
+              {event.note && <p>{event.note}</p>}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>New dates coming soon. Follow us on Instagram to hear first.</p>
+      )}
+    </div>
+  </section>
+
+  <section class="join" aria-labelledby="join-title">
+    <div class="container narrow">
+      <h2 id="join-title">Join the list</h2>
+      <p>
+        Our mailing list is coming soon. For now, follow along on Instagram for new cards and market
+        dates.
+      </p>
+      <p>
+        <a class="button button-dark" href={site.social.instagramUrl} rel="noopener">
+          Follow @{site.social.instagram}
+        </a>
+      </p>
+    </div>
+  </section>
 </Base>
+
+<style>
+  section {
+    padding-block: var(--space-xl);
+  }
+
+  .narrow {
+    max-width: var(--content-width);
+    text-align: center;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .hero-text {
+    flex: 1 1 22rem;
+    min-width: 0;
+  }
+
+  .lead {
+    font-size: var(--font-size-lg);
+    line-height: 1.4;
+    color: var(--color-text-muted);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .hero-cards {
+    flex: 1 1 18rem;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    justify-content: center;
+  }
+
+  /* Let the two hero cards share the row instead of forcing it wider than a phone. */
+  .hero-cards .card-image {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .card-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    /* Never stretch the artwork, whatever box it lands in. */
+    object-fit: contain;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+  }
+
+  .story {
+    background: var(--color-surface);
+  }
+
+  .story-heart {
+    width: 56px;
+    height: auto;
+  }
+
+  .cards-title {
+    margin: 0 0 var(--space-md);
+  }
+
+  .lockup {
+    width: 320px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .cards-intro {
+    max-width: var(--content-width);
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    align-items: center;
+    justify-items: center;
+    gap: var(--space-md);
+    margin: var(--space-lg) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Calm backgrounds (Paper/Sage alternate); brand colours are accents only. */
+  .find-us {
+    background: var(--color-surface);
+  }
+
+  .event-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--space-md);
+    margin: var(--space-lg) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .event {
+    background: var(--color-bg);
+    border-top: 4px solid var(--color-hadley);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-card);
+  }
+
+  .event h3 {
+    margin-top: 0;
+  }
+
+  .event p {
+    margin: var(--space-xs) 0;
+  }
+
+  .event-when {
+    color: var(--color-hadley-text);
+    font-weight: var(--font-weight-strong);
+  }
+
+  .button-dark {
+    background: var(--color-text);
+    border-color: var(--color-text);
+    color: var(--color-bg);
+  }
+
+  .button-dark:hover {
+    background: var(--color-text-muted);
+    border-color: var(--color-text-muted);
+    color: var(--color-bg);
+  }
+</style>

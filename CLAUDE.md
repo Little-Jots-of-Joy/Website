@@ -12,7 +12,7 @@ Read `docs/PROJECT_BRIEF.md` before starting any task. It holds the goals, decis
 1. **No third-party requests.** Do not add external scripts, fonts, analytics, embeds, CDNs or tracking pixels without explicit approval and an ADR in `docs/adr/`.
 2. **No new dependencies without approval.** Propose the package, why it's needed, its maintenance health and its alternatives. Prefer no dependency.
 3. **No secrets in the repo.** No API keys, tokens or credentials in code, config, commits or logs.
-4. **Child privacy.** No children's faces, surnames, ages, school, neighbourhood or location anywhere: images, copy, alt text, file names, commit messages, metadata. First name only, inside the approved sub-brand name. Every image must have EXIF/GPS metadata stripped.
+4. **Child privacy.** No children's faces, surnames, ages, school, neighbourhood or location anywhere: images, copy, alt text, file names, commit messages, metadata. First name only, inside the approved sub-brand name. Every image must have EXIF/GPS metadata stripped. Exception: business event listings (event name, date, hours, venue) may be published with Brion's approval; they must never say which family member will be there.
 5. **Art is not open source.** Only web-resolution exports go in the repo. Never commit print files or original scans. Artwork and brand assets are all rights reserved.
 6. **Privacy changes travel together.** Any change to what personal data is collected, where it goes or how long it's kept must update `docs/privacy/data-inventory.md` and the `/privacy` page in the same pull request.
 7. **CSP is a contract.** Keep the Content-Security-Policy in `public/_headers` strict. No inline scripts or styles. Loosening it needs an ADR.

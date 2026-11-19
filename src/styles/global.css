@@ -57,12 +57,60 @@ a:hover {
   color: var(--color-text-muted);
 }
 
-.site-footer {
-  max-width: var(--content-width);
+/* Full-width pages (home) drop the reading column; sections set their own width. */
+main.wide {
+  max-width: none;
+  padding: 0;
+}
+
+.container {
+  max-width: var(--container-width);
   margin-inline: auto;
-  padding: var(--space-lg) var(--space-md);
-  border-top: 1px solid var(--color-line);
-  font-size: var(--font-size-sm);
+  padding-inline: var(--space-md);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg);
+  color: var(--color-text);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: var(--space-sm);
+}
+
+/* Buttons (BRAND.md: Sunshine with Forest text, or Forest outline). */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap-target);
+  padding: var(--space-sm) var(--space-lg);
+  border: 2px solid var(--color-button-bg);
+  border-radius: var(--radius-pill);
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
+  font-weight: var(--font-weight-strong);
+  text-decoration: none;
+}
+
+.button:hover {
+  color: var(--color-button-text);
+  border-color: var(--color-text);
+}
+
+.button-outline {
+  background: transparent;
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.button-outline:hover {
+  background: var(--color-surface);
 }
 
 /* Readable tables for policy pages (privacy retention table). */
