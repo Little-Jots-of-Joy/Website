@@ -1,15 +1,24 @@
 ---
 import '../styles/global.css';
 import { site } from '../config/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title?: string;
   description?: string;
   /** Set false on pages that should not claim a canonical URL, such as 404. */
   canonical?: boolean;
+  /** Full-width page (home page bands). Other pages keep the reading column. */
+  wide?: boolean;
 }
 
-const { title, description = site.description, canonical: withCanonical = true } = Astro.props;
+const {
+  title,
+  description = site.description,
+  canonical: withCanonical = true,
+  wide = false,
+} = Astro.props;
 const pageTitle = title ? `${title} | ${site.name}` : site.name;
 // Clean URLs: "/index.html" becomes "/", "/privacy.html" becomes "/privacy".
 const canonical = new URL(Astro.url.pathname.replace(/(index)?\.html$/, ''), site.url);
@@ -60,13 +69,13 @@ const ogImage = new URL('/og-image.png', site.url);
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
-    <main>
+    <a class="skip-link" href="#content">
+      Skip to content
+    </a>
+    <Header />
+    <main id="content" class:list={[{ wide }]}>
       <slot />
     </main>
-    <footer class="site-footer">
-      <p>
-        <a href="/privacy">Privacy</a>
-      </p>
-    </footer>
+    <Footer />
   </body>
 </html>

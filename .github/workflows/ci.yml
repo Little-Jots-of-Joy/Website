@@ -45,8 +45,11 @@ jobs:
         with:
           # --fallback-extensions html: links use clean URLs (/privacy) that Workers
           # serves from privacy.html, so the checker also tries the .html file.
+          # --index-files index.html,.: "/" means index.html, so fragments like
+          # /#find-us are checked; plain folder links in docs stay valid.
           args: >-
             --offline --no-progress --include-fragments --fallback-extensions html
+            --index-files index.html,.
             --root-dir ${{ github.workspace }}/dist
             'dist/**/*.html' '*.md' 'docs/**/*.md'
           fail: true
