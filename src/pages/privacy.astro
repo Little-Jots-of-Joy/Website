@@ -1,0 +1,150 @@
+---
+// Plain-language privacy policy (PIPEDA). Draft copy for Kelly to approve.
+// Keep in step with docs/privacy/data-inventory.md and the LJoJ Data Retention
+// Policy: any change to what we collect, where it goes or how long we keep it
+// updates all three in the same pull request (CLAUDE.md rule 6).
+import Base from '../layouts/Base.astro';
+import { site } from '../config/site';
+
+const lastUpdated = 'November 18, 2026';
+const privacy = site.email.privacy;
+---
+
+<Base title="Privacy" description={`How ${site.name} handles personal information.`}>
+  <h1>Privacy</h1>
+  <p class="muted">Last updated {lastUpdated}</p>
+
+  <p>
+    We are {site.name}, a small family stationery business. We collect as little personal
+    information as we can, and we never sell it. This page explains what we collect, why, where it
+    goes and how long we keep it.
+  </p>
+
+  <h2>Who is responsible</h2>
+  <p>
+    Our owner, Kelly, is accountable for how we handle personal information. You can reach us about
+    privacy at <a href={`mailto:${privacy}`}>{privacy}</a>.
+  </p>
+
+  <h2>Visiting this website</h2>
+  <p>
+    This website has no forms, no accounts, no cookies, no ads and no tracking or analytics scripts.
+    Every file comes from our own domain.
+  </p>
+  <p>
+    To show you the site and protect it from abuse, our hosting provider, Cloudflare, processes
+    basic technical information about each visit: your IP address, browser type, the page you asked
+    for, the time, and the page that linked you here. We don't keep logs of individual visits. We
+    see only overall statistics, such as how many visits the site had.
+  </p>
+
+  <h2>Emailing us</h2>
+  <p>
+    If you email one of our addresses, we receive your name, email address and whatever you write.
+    We use it only to reply to you. Our email runs on Google Workspace.
+  </p>
+
+  <h2>Buying from us at a market</h2>
+  <p>
+    Card payments are handled by Square. We don't see or keep your full card number. If you ask for
+    a receipt by email or text, Square uses your email address or phone number to send it. We keep
+    records of our sales because tax law requires it.
+  </p>
+
+  <h2>Instagram</h2>
+  <p>
+    We link to our Instagram account but don't embed it on this site. If you message us on
+    Instagram, Meta handles that message under its own privacy policy.
+  </p>
+
+  <h2>Children</h2>
+  <p>
+    This website is for adults. We don't knowingly collect personal information from children. The
+    artwork on our cards is made by our own kids, and we never share their faces, full names, ages,
+    schools or where they live.
+  </p>
+
+  <h2>Who handles your information</h2>
+  <p>
+    We use a few service providers. Each one processes information only to provide its service to
+    us. Some store or process information outside Canada, where it may be subject to the laws of
+    those countries.
+  </p>
+  <ul>
+    <li>
+      <strong>Cloudflare</strong> hosts and protects this website (mainly the United States and
+      Europe).
+    </li>
+    <li>
+      <strong>Google Workspace</strong> runs our email (may be outside Canada).
+    </li>
+    <li>
+      <strong>Square</strong> processes card payments at markets.
+    </li>
+    <li>
+      <strong>Meta</strong> runs Instagram, if you contact us there.
+    </li>
+  </ul>
+
+  <h2>How long we keep it</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Information</th>
+          <th scope="col">How long</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Website visit details</td>
+          <td>We keep none. Cloudflare processes them only to serve and protect the site.</td>
+        </tr>
+        <tr>
+          <td>Emails you send us</td>
+          <td>24 months after our last message with you, unless they are part of an order.</td>
+        </tr>
+        <tr>
+          <td>Privacy requests and complaints</td>
+          <td>Until resolved and any appeal is finished, then 24 months.</td>
+        </tr>
+        <tr>
+          <td>Sales records</td>
+          <td>6 years from the end of the tax year, as tax law requires.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>When we no longer need information, we delete it.</p>
+
+  <h2>Your choices and rights</h2>
+  <p>
+    You can ask to see the personal information we hold about you, ask us to correct it, or withdraw
+    your consent for us to use it. Email <a href={`mailto:${privacy}`}>{privacy}</a>. We will reply
+    within 30 days. We may ask you to confirm who you are first.
+  </p>
+
+  <h2>Keeping it safe</h2>
+  <p>
+    We protect our accounts with two-factor authentication, give access only to people who need it,
+    and use secure connections (HTTPS) for this website. If a privacy breach could cause you
+    significant harm, we will tell you and report it to the Office of the Privacy Commissioner of
+    Canada.
+  </p>
+
+  <h2>Questions or concerns</h2>
+  <p>
+    Please contact us first at <a href={`mailto:${privacy}`}>{privacy}</a>, and we will do our best
+    to help. If you are not satisfied, you can complain to the
+    <a href="https://www.priv.gc.ca/en/report-a-concern/">
+      Office of the Privacy Commissioner of Canada
+    </a>
+    .
+  </p>
+
+  <h2>Changes to this page</h2>
+  <p>
+    If we change how we handle personal information, we will update this page and the date at the
+    top.
+  </p>
+</Base>

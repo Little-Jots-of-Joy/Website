@@ -43,8 +43,10 @@ jobs:
       - name: Link check (internal links only, so external sites can't make it flaky)
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
+          # --fallback-extensions html: links use clean URLs (/privacy) that Workers
+          # serves from privacy.html, so the checker also tries the .html file.
           args: >-
-            --offline --no-progress --include-fragments
+            --offline --no-progress --include-fragments --fallback-extensions html
             --root-dir ${{ github.workspace }}/dist
             'dist/**/*.html' '*.md' 'docs/**/*.md'
           fail: true
