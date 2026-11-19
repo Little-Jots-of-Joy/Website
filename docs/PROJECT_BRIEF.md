@@ -8,7 +8,7 @@ Build the web presence for **Little Jots of Joy**, a Toronto family stationery b
 
 The site starts as a single static brand page and grows in small, safe increments. Privacy and security are foundations, not features.
 
-**First deadline:** v1 live by **Wednesday 2026-11-18**, ahead of the first kid maker market on **Saturday 2026-11-21**. A second market follows about two weeks later.
+**First deadline:** v1 live by **Wednesday 2026-11-18**, ahead of the first kid maker market on **Sunday 2026-11-22**. A second market follows about two weeks later.
 
 ## 2. Non-negotiables
 
