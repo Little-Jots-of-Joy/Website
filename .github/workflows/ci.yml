@@ -19,6 +19,10 @@ jobs:
     name: Build and checks
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    env:
+      LYCHEE_VERSION: 0.24.2
+      # From lychee-x86_64-unknown-linux-gnu.tar.gz.sha256 on the official release.
+      LYCHEE_SHA256: 1f4e0ef7f6554a6ed33dd7ac144fb2e1bbed98598e7af973042fc5cd43951c9a
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -34,25 +38,25 @@ jobs:
       - name: Install exiftool (image metadata check)
         run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends libimage-exiftool-perl
 
+      # The link check runs inside pnpm check (check:links in package.json), so CI and
+      # local runs use the same flags. Internal links only (--offline), so external
+      # sites can't make it flaky. --fallback-extensions html: clean URLs (/privacy)
+      # resolve to privacy.html. --index-files index.html,.: fragments like /#find-us
+      # are checked against index.html; plain folder links in docs stay valid.
+      - name: Install lychee (link check, checksum verified)
+        run: |
+          file="lychee-x86_64-unknown-linux-gnu.tar.gz"
+          curl -sSfL -o "$file" "https://github.com/lycheeverse/lychee/releases/download/lychee-v${LYCHEE_VERSION}/${file}"
+          echo "${LYCHEE_SHA256}  ${file}" | sha256sum --check --strict
+          tar -xzf "$file" --strip-components=1 lychee-x86_64-unknown-linux-gnu/lychee
+          sudo install -m 0755 lychee /usr/local/bin/lychee
+          rm -f lychee "$file"
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: pnpm check (types, format, build, HTML, inline code, image metadata)
+      - name: pnpm check (types, format, build, HTML, inline code, image metadata, links)
         run: pnpm check
-
-      - name: Link check (internal links only, so external sites can't make it flaky)
-        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
-        with:
-          # --fallback-extensions html: links use clean URLs (/privacy) that Workers
-          # serves from privacy.html, so the checker also tries the .html file.
-          # --index-files index.html,.: "/" means index.html, so fragments like
-          # /#find-us are checked; plain folder links in docs stay valid.
-          args: >-
-            --offline --no-progress --include-fragments --fallback-extensions html
-            --index-files index.html,.
-            --root-dir ${{ github.workspace }}/dist
-            'dist/**/*.html' '*.md' 'docs/**/*.md'
-          fail: true
 
   secrets:
     name: Secret scan
