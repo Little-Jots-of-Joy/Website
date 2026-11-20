@@ -161,7 +161,7 @@ PIPEDA's ten fair information principles apply regardless of business size: acco
 
 ### Child privacy rules (strict)
 
-- No children's faces, surnames, ages, school, neighbourhood or location in any image, copy, file name, alt text, commit message or metadata.
+- No children's faces, surnames, ages, school, neighbourhood or location in any image, copy, file name, alt text, commit message or metadata. Exceptions (event listings, city names in card designs) are in CLAUDE.md rule 4.
 - First name only, and only within the approved sub-brand name.
 - Strip all EXIF/GPS metadata from every image; add an automated check that fails the build if metadata is present.
 - Process photos are hands and artwork only.

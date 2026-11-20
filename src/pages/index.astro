@@ -3,13 +3,18 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { site } from '../config/site';
-import { cards } from '../data/cards';
+import { cards, heroCards, occasions } from '../data/cards';
 import { upcomingEvents } from '../data/events';
 import heart from '../assets/brand/heart.png';
 import lockup from '../assets/brand/art-cards-by-hadley-lockup.png';
 
 const events = upcomingEvents();
-const heroCards = cards.slice(0, 2);
+const cardGroups = occasions
+  .map((occasion) => ({
+    ...occasion,
+    cards: cards.filter((card) => card.occasion === occasion.id),
+  }))
+  .filter((group) => group.cards.length > 0);
 ---
 
 <Base wide>
@@ -76,19 +81,27 @@ const heroCards = cards.slice(0, 2);
           Each card is printed from the original drawing, just as it was made. Even the lettering is
           kid-made: it’s a font created from our young artist’s own handwriting.
         </p>
-        <ul class="card-grid">
-          {cards.map((card) => (
-            <li>
-              <Image
-                src={card.image}
-                alt={card.alt}
-                widths={[240, 480]}
-                sizes="(min-width: 50rem) 240px, 45vw"
-                class="card-image"
-              />
-            </li>
-          ))}
-        </ul>
+        <p class="cards-intro">All of these designs are at our market table this season.</p>
+        {cardGroups.map((group) => (
+          <>
+            <h3 id={`cards-${group.id}`} class="occasion-title">
+              {group.title}
+            </h3>
+            <ul class="card-grid" aria-labelledby={`cards-${group.id}`}>
+              {group.cards.map((card) => (
+                <li>
+                  <Image
+                    src={card.image}
+                    alt={card.alt}
+                    widths={[240, 480]}
+                    sizes="(min-width: 50rem) 240px, 45vw"
+                    class="card-image"
+                  />
+                </li>
+              ))}
+            </ul>
+          </>
+        ))}
       </div>
     </section>
   )}
@@ -214,13 +227,18 @@ const heroCards = cards.slice(0, 2);
     max-width: var(--content-width);
   }
 
+  .occasion-title {
+    margin: var(--space-xl) 0 0;
+  }
+
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    /* 140px keeps two columns on a phone, so 20 cards don't become one long scroll. */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     align-items: center;
     justify-items: center;
     gap: var(--space-md);
-    margin: var(--space-lg) 0 0;
+    margin: var(--space-md) 0 0;
     padding: 0;
     list-style: none;
   }
