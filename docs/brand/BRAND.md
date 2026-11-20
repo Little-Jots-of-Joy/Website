@@ -75,7 +75,7 @@ Approved lines:
 
 ## 6. Child privacy (non-negotiable, from the project brief §7)
 
-- No children's faces, surnames, ages, school, neighbourhood or location anywhere: images, copy, file names, alt text, commit messages, metadata.
+- No children's faces, surnames, ages, school, neighbourhood or location anywhere: images, copy, file names, alt text, commit messages, metadata. Exceptions (event listings, city names in card designs) are in CLAUDE.md rule 4.
 - Hadley's first name appears **only** inside the sub-brand name "Art Cards by Hadley".
 - Strip all metadata from images. The brand assets in this package were saved without metadata.
 - Process photos show hands and artwork only.
