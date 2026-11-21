@@ -9,8 +9,9 @@ import heart from '../assets/brand/heart.png';
 import lockup from '../assets/brand/art-cards-by-hadley-lockup.png';
 
 const events = upcomingEvents();
-// Each occasion shows its landscape cards in one row and its portrait cards in the
-// next, so every row has one card shape and an even height.
+// Each occasion shows its landscape cards in one row and its portrait cards in
+// another, so every row has one card shape and an even height. The row with more
+// cards goes first (ties: landscape first), so each group reads wide over narrow.
 const isLandscape = (card: (typeof cards)[number]) => card.image.width > card.image.height;
 const cardGroups = occasions
   .map((occasion) => {
@@ -20,7 +21,9 @@ const cardGroups = occasions
       rows: [
         { shape: 'landscape', cards: groupCards.filter(isLandscape) },
         { shape: 'portrait', cards: groupCards.filter((card) => !isLandscape(card)) },
-      ].filter((row) => row.cards.length > 0),
+      ]
+        .filter((row) => row.cards.length > 0)
+        .sort((a, b) => b.cards.length - a.cards.length),
     };
   })
   .filter((group) => group.rows.length > 0);
