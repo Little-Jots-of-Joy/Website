@@ -9,12 +9,21 @@ import heart from '../assets/brand/heart.png';
 import lockup from '../assets/brand/art-cards-by-hadley-lockup.png';
 
 const events = upcomingEvents();
+// Each occasion shows its landscape cards in one row and its portrait cards in the
+// next, so every row has one card shape and an even height.
+const isLandscape = (card: (typeof cards)[number]) => card.image.width > card.image.height;
 const cardGroups = occasions
-  .map((occasion) => ({
-    ...occasion,
-    cards: cards.filter((card) => card.occasion === occasion.id),
-  }))
-  .filter((group) => group.cards.length > 0);
+  .map((occasion) => {
+    const groupCards = cards.filter((card) => card.occasion === occasion.id);
+    return {
+      ...occasion,
+      rows: [
+        { shape: 'landscape', cards: groupCards.filter(isLandscape) },
+        { shape: 'portrait', cards: groupCards.filter((card) => !isLandscape(card)) },
+      ].filter((row) => row.cards.length > 0),
+    };
+  })
+  .filter((group) => group.rows.length > 0);
 ---
 
 <Base wide>
@@ -87,19 +96,21 @@ const cardGroups = occasions
             <h3 id={`cards-${group.id}`} class="occasion-title">
               {group.title}
             </h3>
-            <ul class="card-grid" aria-labelledby={`cards-${group.id}`}>
-              {group.cards.map((card) => (
-                <li>
-                  <Image
-                    src={card.image}
-                    alt={card.alt}
-                    widths={[240, 480]}
-                    sizes="(min-width: 50rem) 240px, 45vw"
-                    class="card-image"
-                  />
-                </li>
-              ))}
-            </ul>
+            {group.rows.map((row) => (
+              <ul class:list={['card-row', row.shape]} aria-labelledby={`cards-${group.id}`}>
+                {row.cards.map((card) => (
+                  <li>
+                    <Image
+                      src={card.image}
+                      alt={card.alt}
+                      widths={[240, 480]}
+                      sizes="(min-width: 50rem) 208px, 45vw"
+                      class="card-image"
+                    />
+                  </li>
+                ))}
+              </ul>
+            ))}
           </>
         ))}
       </div>
@@ -227,20 +238,47 @@ const cardGroups = occasions
     max-width: var(--content-width);
   }
 
+  /* The cards section is centred, like the story above it. */
+  .cards .container {
+    text-align: center;
+  }
+
+  .cards-intro {
+    margin-inline: auto;
+  }
+
   .occasion-title {
     margin: var(--space-xl) 0 0;
   }
 
-  .card-grid {
-    display: grid;
-    /* 140px keeps two columns on a phone, so 20 cards don't become one long scroll. */
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    align-items: center;
-    justify-items: center;
+  /* One card shape per row, centred. Widths give both shapes about the same area. */
+  .card-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-md);
     margin: var(--space-md) 0 0;
     padding: 0;
     list-style: none;
+  }
+
+  .card-row li {
+    flex: 0 1 var(--card-width);
+    /* Never more than half the row, so phones show two cards side by side. */
+    max-width: calc(50% - var(--space-md) / 2);
+  }
+
+  .card-row.landscape {
+    --card-width: 13rem;
+  }
+
+  .card-row.portrait {
+    --card-width: 9.75rem;
+  }
+
+  .card-row .card-image {
+    display: block;
+    max-width: none;
   }
 
   /* Calm backgrounds (Paper/Sage alternate); brand colours are accents only. */
