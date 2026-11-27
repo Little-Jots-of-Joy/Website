@@ -18,6 +18,13 @@
   "observability": {
     "enabled": false,
   },
+  // Required by `wrangler preview` (Workers Builds preview command). Previews
+  // don't inherit top-level settings, so logs are switched off here as well.
+  "previews": {
+    "observability": {
+      "enabled": false,
+    },
+  },
   "assets": {
     "directory": "./dist",
     // Unknown paths get dist/404.html with a 404 status.

@@ -29,7 +29,7 @@ Not shown on `/privacy`, because it does not affect public visitors.
 
 | # | Source | Data | Purpose | Processor | Location | Retention | Basis |
 |---|---|---|---|---|---|---|---|
-| S1 | A reviewer opens a branch preview (ADR 0006) | Reviewer's work email, IP address, sign-in time and result; `CF_Authorization` cookie on preview hostnames only | Limit unreleased drafts to approved reviewers | Cloudflare Access (Zero Trust) | Cloudflare (as flow 1) | Cloudflare's Access log retention (not set by us; check the Zero Trust plan) | Internal security control; the two reviewers are the business owners |
+| S1 | A reviewer opens a branch preview (ADR 0006) | Reviewer's work email, IP address, sign-in time and result; `CF_AppSession` (set on the login redirect, about 24 hours) and `CF_Authorization` (after sign-in) cookies, on preview hostnames only | Limit unreleased drafts to approved reviewers | Cloudflare Access (Zero Trust) | Cloudflare (as flow 1) | Cloudflare's Access log retention (not set by us; check the Zero Trust plan) | Internal security control; the two reviewers are the business owners |
 
 Deletion on Business Starter (no Vault) is manual: the annual retention purge every 15 January (calendar reminder; steps in the LJoJ Compliance Implementation Runbook).
 

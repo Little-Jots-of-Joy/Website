@@ -20,7 +20,7 @@ Cloudflare now offers per-branch **Previews**: a stable URL per branch on `worke
 
 - Kelly can review a branch at a stable link before Brion merges.
 - Production is unchanged: no Access, no cookies, same headers.
-- Preview visitors (only the two reviewers) get a Cloudflare login page, a one-time PIN by email and a `CF_Authorization` cookie on preview hostnames. Cloudflare logs their sign-ins. This is recorded in the data inventory as a staff flow. `/privacy` is unchanged because public visitors are not affected.
+- Preview visitors (only the two reviewers) get a Cloudflare login page, a one-time PIN by email and Access cookies (`CF_AppSession`, `CF_Authorization`) on preview hostnames. Cloudflare logs their sign-ins. This is recorded in the data inventory as a staff flow. `/privacy` is unchanged because public visitors are not affected.
 - To verify after switching on: unauthenticated requests to a preview are refused; previews send the same CSP and security headers; previews send `X-Robots-Tag: noindex`; branches from forks are not built.
 - Adding a reviewer means changing the Access policy (and this ADR if the rule changes).
 - If Access is ever turned off, set `preview_urls` back to `false` in the same change.
