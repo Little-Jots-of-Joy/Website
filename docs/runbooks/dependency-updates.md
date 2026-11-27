@@ -6,9 +6,11 @@ How updates arrive, how fast to act, and what to do when CI blocks an urgent fix
 
 | Type | Source | When | Target |
 |---|---|---|---|
-| Security fix | Dependabot security update | As soon as an advisory is published | Merge within **48 hours** for critical/high (brief section 10) |
+| Security fix | Dependabot security update, titled "Bump the **security** group" | As soon as an advisory is published | Merge within **48 hours** for critical/high (brief section 10) |
 | Routine update | Dependabot version update | Mondays, grouped into one PR per ecosystem | Merge within the week |
 | GitHub Actions update | Dependabot (github-actions) | Mondays, grouped | Merge within the week |
+
+Brion gets an email for every new Dependabot alert (GitHub account notifications, and Watch → Custom → Security alerts on the repository). Security PRs are merged by hand: no auto-merge (decided 2026-11-26). The PR title says "security group"; GitHub also links the alert from the PR.
 
 Routine updates wait 7 days after release (Dependabot `cooldown`), matching pnpm's `minimumReleaseAge`, so they should pass CI.
 

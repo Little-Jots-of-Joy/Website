@@ -12,6 +12,11 @@ updates:
     cooldown:
       default-days: 7
     groups:
+      # Security fixes get their own PR titled "... Bump the security group ...",
+      # so they stand out from the weekly routine PR. Merged by hand (no auto-merge).
+      security:
+        applies-to: security-updates
+        patterns: ['*']
       npm-minor-and-patch:
         patterns: ['*']
         update-types: [minor, patch]
@@ -29,6 +34,9 @@ updates:
     cooldown:
       default-days: 7
     groups:
+      security:
+        applies-to: security-updates
+        patterns: ['*']
       github-actions:
         patterns: ['*']
     commit-message:
