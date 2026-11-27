@@ -6,7 +6,7 @@ This is the website slice of the organization-wide **LJoJ Data Inventory** and *
 
 - Accountable person: the designated privacy officer (named in the LJoJ Privacy Policy in Drive; identity given on request, PIPEDA Schedule 1, 4.1.2)
 - Privacy contact: privacy@littlejotsofjoy.ca
-- Last reviewed: 2026-11-18
+- Last reviewed: 2026-11-26
 
 ## What the website does not do (v1)
 
@@ -22,6 +22,14 @@ This is the website slice of the organization-wide **LJoJ Data Inventory** and *
 |---|---|---|---|---|---|---|---|
 | 1 | Every website visit | IP address, browser user agent, requested URL, time, referring page | Deliver the site and protect it from abuse | Cloudflare (processor) | Mainly US and EEA (Cloudflare privacy policy) | **We keep none.** Cloudflare retains per its own business purposes (no published period). Aggregate traffic statistics in the dashboard: at least 31 days (Cloudflare analytics docs) | Necessary to provide the service; disclosed on `/privacy` |
 | 2 | Visitor emails a public address shown on the site (hello@, support@, orders@, wholesale@, privacy@, security@) | Name, email address, message content, anything the sender includes | Reply to the enquiry | Google Workspace (Business Starter) | Google data centres, may be outside Canada | Enquiries: **24 months** after the last message, unless part of an order record. Privacy requests: until resolved and recourse exhausted (PIPEDA s. 8(8)), then 24 months. Security reports: 24 months after closure | Implied consent by writing to us, limited to answering the enquiry |
+
+### Staff and reviewers (not website visitors)
+
+Not shown on `/privacy`, because it does not affect public visitors.
+
+| # | Source | Data | Purpose | Processor | Location | Retention | Basis |
+|---|---|---|---|---|---|---|---|
+| S1 | A reviewer opens a branch preview (ADR 0006) | Reviewer's work email, IP address, sign-in time and result; `CF_Authorization` cookie on preview hostnames only | Limit unreleased drafts to approved reviewers | Cloudflare Access (Zero Trust) | Cloudflare (as flow 1) | Cloudflare's Access log retention (not set by us; check the Zero Trust plan) | Internal security control; the two reviewers are the business owners |
 
 Deletion on Business Starter (no Vault) is manual: the annual retention purge every 15 January (calendar reminder; steps in the LJoJ Compliance Implementation Runbook).
 

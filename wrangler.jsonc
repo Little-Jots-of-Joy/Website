@@ -5,11 +5,14 @@
   // Must match the Worker name in the Cloudflare dashboard.
   "name": "website",
   "compatibility_date": "2026-11-17",
-  // Serve only on the custom domain (littlejotsofjoy.ca, set in the dashboard).
-  // Without these, wrangler treats the workers.dev and preview addresses as on
-  // and re-enables them on every deploy.
+  // Production is served only on the custom domain (littlejotsofjoy.ca, set in
+  // the dashboard). Keep workers_dev explicit: if omitted, wrangler re-enables
+  // the workers.dev address on every deploy.
   "workers_dev": false,
-  "preview_urls": false,
+  // Branch previews for review (ADR 0006). They are public unless Cloudflare
+  // Access is on: Worker > Access > "Previews only". Never set this to true
+  // while Access is off.
+  "preview_urls": true,
   // Workers Logs off: we keep no request-level visitor logs (privacy data
   // inventory, retention policy). Changing this needs a privacy update (rule 6).
   "observability": {

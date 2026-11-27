@@ -9,6 +9,7 @@ One short file per significant decision: context, decision, consequences. Number
 | [0003](0003-public-repository.md) | Public repository | Accepted |
 | [0004](0004-content-security-policy.md) | Content-Security-Policy | Accepted |
 | [0005](0005-main-branch-ruleset.md) | `main` branch ruleset without required approvals | Accepted |
+| [0006](0006-previews-behind-access.md) | Branch previews behind Cloudflare Access | Accepted |
 
 ## Template
 

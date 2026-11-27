@@ -61,9 +61,11 @@ Recorded so the setup can be rebuilt or audited. Change these only with a pull r
 | | Build command | `pnpm run build` |
 | | Deploy command | `pnpm exec wrangler deploy` |
 | | Build variable | `WRANGLER_SEND_METRICS=false` |
-| | Preview builds | Off (re-enable only behind Cloudflare Access, action 50) |
+| | Preview builds | On, newer Previews model (ADR 0006). Every push to a non-`main` branch builds a preview |
+| Worker → Access | Protect this Worker behind Access | **Previews only**. Policy: allow two named Workspace users (Brion, Kelly) by exact email. Must be on whenever `preview_urls` is `true` |
 | Worker → Settings → Domains & Routes | Custom domain | `littlejotsofjoy.ca` |
-| | `workers.dev` and preview URLs | Off |
+| | `workers.dev` | Off (`workers_dev: false`) |
+| | Preview URLs | On (`preview_urls: true`), behind Access |
 | GitHub → org settings → GitHub Apps | Cloudflare Workers and Pages | Only select repositories: `Website` |
 | `littlejotsofjoy.ca` zone → SSL/TLS → Edge Certificates | Always Use HTTPS | On |
 | | Minimum TLS version | 1.2 or higher |
